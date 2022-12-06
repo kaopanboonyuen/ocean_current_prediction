@@ -1,0 +1,15 @@
+streamlit==1.12.2
+streamlit-bokeh-events
+streamlit-folium
+streamlit-keplergl
+tropycal
+
+sklearn
+pillow
+
+scikit-learn 
+scipy 
+matplotlib
+
+pydot
+seaborn
