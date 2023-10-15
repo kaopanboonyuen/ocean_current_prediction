@@ -53,16 +53,10 @@ Latitude = float(lat)
 Longitude = float(lon)
 
 if models != 'None':
-	U_MODEL, V_MODEL = st.columns(2)
-
-	U_MODEL.success('OCEAN CURRENT MODEL IS '+str(models).upper()+' AS U-COMPOMENT')
-	V_MODEL.success('OCEAN CURRENT MODEL IS '+str(models).upper()+' AS V-COMPOMENT')
-	BOUND = (7.1393061, 99.8913451,  9.3034079, 102.9258328)
-	if (BOUND[0] <= Latitude <= BOUND[1]) and (BOUND[2] <= Longitude <= BOUND[3]) :
-
-		with st.spinner('Wait for it...'):
-		    time.sleep(3)
-		#st.success('Done!')
+	
+    BOUND = (7.1393061, 99.8913451,  9.3034079, 102.9258328)
+	
+    if (BOUND[0] <= Latitude <= BOUND[1]) and (BOUND[2] <= Longitude <= BOUND[3]) :
 
 		print('THIS MODEL HAS SUPPORTED THIS LAT, LON.')
 
@@ -115,22 +109,6 @@ if models != 'None':
 		df_to_show['U-Forecast'] = predict_U
 		df_to_show['V-Forecast'] = predict_V
 
-		print(df_to_show.columns)
-
-		U_MODEL.dataframe(df_to_show[['Timestamp', 'Longitude', 'Latitude','U-Forecast']])
-		V_MODEL.dataframe(df_to_show[['Timestamp', 'Longitude', 'Latitude','V-Forecast']])
-
-		U_MODEL.line_chart(df_to_show[['U-Forecast']])
-		V_MODEL.line_chart(df_to_show[['V-Forecast']])
-
-
 	else:
 	    print('THIS MODEL HAS NOT SUPPORTED THIS LAT, LON.')
 	    st.warning('THIS MODEL HAS NOT SUPPORTED THESE LAT, LON !!!')
-
-
-
-
-
-
-
