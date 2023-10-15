@@ -53,10 +53,9 @@ Latitude = float(lat)
 Longitude = float(lon)
 
 if models != 'None':
-	
-    BOUND = (7.1393061, 99.8913451,  9.3034079, 102.9258328)
-	
-    if (BOUND[0] <= Latitude <= BOUND[1]) and (BOUND[2] <= Longitude <= BOUND[3]) :
+
+	BOUND = (7.1393061, 99.8913451,  9.3034079, 102.9258328)
+	if (BOUND[0] <= Latitude <= BOUND[1]) and (BOUND[2] <= Longitude <= BOUND[3]) :
 
 		print('THIS MODEL HAS SUPPORTED THIS LAT, LON.')
 
@@ -108,6 +107,15 @@ if models != 'None':
 
 		df_to_show['U-Forecast'] = predict_U
 		df_to_show['V-Forecast'] = predict_V
+
+		print(df_to_show)
+
+		# U_MODEL.dataframe(df_to_show[['Timestamp', 'Longitude', 'Latitude','U-Forecast']])
+		# V_MODEL.dataframe(df_to_show[['Timestamp', 'Longitude', 'Latitude','V-Forecast']])
+
+		# U_MODEL.line_chart(df_to_show[['U-Forecast']])
+		# V_MODEL.line_chart(df_to_show[['V-Forecast']])
+
 
 	else:
 	    print('THIS MODEL HAS NOT SUPPORTED THIS LAT, LON.')
